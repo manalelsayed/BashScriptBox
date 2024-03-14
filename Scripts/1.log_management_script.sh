@@ -1,12 +1,12 @@
 #!/bin/bash
 #check if the /var/log/messages file exist
-log_file='/var/log/messages'
-backup_file='/var/log/messages.old'
-if [ -f "$log_file" ]; 
+log_file="/home/kali/BashScriptBox/var/log"
+backup_file='/home/kali/BashScriptBox/var/log.old'
+if [ "$log_file" ]; 
       then	echo "copying $log_file to $backup_file"
 
 	#copy contents of logfile  to backupfile
-	cp "$log_file" "$backup_file"
+	cp -r "$log_file" "$backup_file"
 
 	#check if copying file was successfull
 	if  [ $? -eq 0 ];

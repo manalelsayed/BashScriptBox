@@ -1,0 +1,25 @@
+#!/bin/bash
+#check if the /var/log/messages file exist
+#log_file='/var/log'
+log_file="/home/kali/BashScriptBox/var/log"
+backup_file='/home/kali/BashScriptBox/var/log.old'
+
+#check if log file exists
+if [  "$log_file" ]; then
+
+        # Change directory to backups directory
+        cd $log_file
+	#rotate backups by renamg existing backup files with a timestamp
+	for file in "$log_file/"*.log ; do
+	if [[ "$file" == *"log"* ]]; then	
+	echo "$file"	
+	
+                mv "$file" "${file}_$(date +%Y%m%d%H%M%S)"
+	fi
+         done
+
+else echo "log file doesn't exist"	
+#check if copying file was successfull
+fi
+
+
