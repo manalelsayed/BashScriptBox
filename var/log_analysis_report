@@ -1,0 +1,76 @@
+Log Analysis Report
+===================
+Total Errors: 3
+Total Warnings: 2
+Total Critical Events: 1
+Log Analysis Report - Generated at: 2024-03-27 00:14:40
+==================================================
+Total Errors: 3
+Total Warnings: 2
+Total Critical Events: 1
+==================================================
+Log Analysis Report - Generated at: 2024-03-27 00:14:43
+==================================================
+Total Errors: 3
+Total Warnings: 2
+Total Critical Events: 1
+==================================================
+Log Analysis Report - Generated at: 2024-03-27 00:18:54
+==================================================
+Total Errors: 4
+Total Warnings: 2
+Total Critical Events: 1
+Detailed Analysis:
+------------------
+Latest 5 Error Messages:
+      1 error:two
+      1 error:three
+      1 error:one
+      1 error:aaaaaa
+Latest 10 Warning Messages:
+warning:two
+warning:two
+critical:three
+==================================================
+Log Analysis Report - Generated at: 2024-03-27 00:21:40
+==================================================
+Total Errors: 4
+Total Warnings: 2
+Total Critical Events: 1
+Detailed Analysis:
+------------------
+Latest 5 Error Messages:
+error:one
+error:two
+error:three
+error:aaaaaa
+Latest 10 Warning Messages:
+warning:two
+warning:two
+critical:three
+==================================================
+Log Analysis Report - Generated at: 2024-03-27 00:25:08
+==================================================
+Total Errors: 4
+Total Warnings: 2
+Total Critical Events: 1
+Detailed Analysis:
+------------------
+Latest 5 Error Messages:
+error:one
+error:two
+error:three
+error:aaaaaa
+Latest 10 Warning Messages:
+warning:two
+warning:two
+==================================================
+Log Analysis Report - Generated at: 2024-03-27 00:26:28
+==================================================
+Total Errors: 0
+Total Critical Events: 0
+Detailed Analysis:
+------------------
+Latest 5 Error Messages:
+Latest 10 Warning Messages:
+==================================================
