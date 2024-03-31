@@ -1,0 +1,76 @@
+#!/bin/bash
+#check if the /var/log/messages file exist
+log_file="/home/kali/BashScriptBox/var/log"
+backup_file='/home/kali/BashScriptBox/var/log.old'
+file_format='txt'
+
+# Function to display usage information
+usage() {
+    echo "Usage: $0 [-b <backup_location>] [-l <log_file>] [-f <report_format>]"
+    echo "Options:"
+    echo "  -b <backup_location>: Specify backup file location (default: /var/log/messages)"
+    echo "  -l <log_file>: Specify log file to analyze (default: /var/log/messages.old)"
+    echo "  -f <report_format>: Specify report format (txt or csv) (default: txt)"
+    echo "ex: ./customizable_log_file_management.sh -b /path/to/backup -l /path/to/logfile.log -f csv"
+    exit 1
+}
+
+# Parse command-line options
+while getopts ":b:l:f:" opt; do
+    case ${opt} in
+        b)
+            backup_location=$OPTARG
+            ;;
+        l)
+            log_file=$OPTARG
+            ;;
+        f)
+            report_format=$OPTARG
+            ;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            usage
+            ;;
+        :)
+            echo "Option -$OPTARG requires an argument." >&2
+            usage
+            ;;
+    esac
+done
+shift $((OPTIND -1))
+
+
+if [ ! -f "$log_file" ];  
+   then	echo "ERROR: $log_file doesn't exist "
+	exit 1   
+fi
+
+# Current date and time
+current_time=$(date +"%Y-%m-%d %H:%M:%S")
+{
+    echo "Log Analysis Report - Generated at: $current_time"
+    echo "=================================================="
+    # Extract error counts
+    errors=$(grep -i "error" "$log_file" | wc -l)
+    echo "Total Errors: $errors"
+
+    # Extract warning counts
+    awk '/warning/ {count++} END {print "Total Warnings:", count}' $log_file
+
+    # Extract critical events
+    critical_events=$(sed -n '/critical/p' "$log_file" | wc -l)
+    echo "Total Critical Events: $critical_events"
+
+    echo "Detailed Analysis:"
+    echo "------------------"
+    
+    echo "Latest 5 Error Messages:"
+    awk '/error/ {print}' "$log_file" | tail -n 5
+
+    echo "Latest 10 Warning Messages:"
+    awk '/warning/ {print}' "$log_file" | tail -n 5  
+    echo "=================================================="
+   
+} >> "$output_file"
+
+echo "Log analysis report has been saved to '$output_file.$file_format'."
