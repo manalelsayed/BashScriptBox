@@ -15,3 +15,5 @@ This repository contains a set of useful bash scripts that automate various task
 - **log_file_backup_rotation_and_management.sh**: This Bash script is designed to manage backup files in a directory by retaining only the most recent backups based on the date contained within their filenames.
 
 - **log_analysis_and_reporting.sh**: This Bash script performs analysis on a log file and generates a report summarizing error counts, warning counts, critical events, and specific information like top error messages and latest warning messages.
+
+- **Customizable_log_analysis_and_reporting.sh**: The script efficiently manages log files, offering customizable configurations for backup locations, log analysis criteria, and reporting formats, enhancing logging operations with ease.
